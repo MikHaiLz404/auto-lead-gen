@@ -2,7 +2,7 @@
 
 ## About This Project
 
-**ระบบหาลูกค้าใหม่อัตโนมัติสำหรับ:** (ชื่อ Studio — ใส่ชื่อ Studio ของคุณ)
+**ระบบหาลูกค้าใหม่อัตโนมัติสำหรับ:** Jumbo Jumps
 **ธุรกิจ:** Game Studio — พัฒนาและจัดจำหน่ายเกม PC/Console โดยมองหา Publisher ร่วมงาน
 **สินค้าหรือบริการหลัก:** Father, Son & Holy Guns — Roguelite Co-op Multiplayer (Steam PC)
 **ราคาเฉลี่ย:** ~10 ล้านบาทต่อโปรเจกต์ (fully funded)

@@ -1,15 +1,16 @@
 ---
-name: LinkedIn Message
-description: ข้อความ LinkedIn สำหรับติดต่อลูกค้าเป้าหมาย
+name: LinkedIn Publisher Outreach
+description: ข้อความ LinkedIn สำหรับติดต่อ publisher
 ---
 
-Hi (ชื่อ),
+Hi (Name),
 
-I noticed (ชื่อบริษัท) is in (อุตสาหกรรม) and have been following (ข่าว/การเคลื่อนไหวล่าสุด).
+I noticed (Publisher Name) has been publishing some great PC titles lately. We're a Thai indie studio with a game ready to publish on Steam, and we're looking for the right publishing partner.
 
-(1-2 ประโยคเชื่อมโยง pain point กับสิ่งที่เราช่วยได้)
+Our game: (Genre) targeting (audience), fully funded and ready to go.
 
-Would love to share how we've helped similar companies. Open to a quick call?
+Would love to chat about potential collaboration if your pipeline has room.
 
-Best,
-(ชื่อของคุณ)
+Thanks!
+(Your Name)
+(Studio Name)

@@ -1,88 +1,141 @@
-# Auto Lead Gen
+# Auto Lead Gen — Game Studio Publisher Outreach
 
-ระบบหาลูกค้าใหม่แบบอัตโนมัติด้วย Claude Cowork
+ระบบหาลูกค้า (Publishing Partner) อัตโนมัติด้วย Claude Cowork สำหรับ Game Studio ที่ต้องการหา Publisher สำหรับเกม PC/Steam
+
+---
+
+## 🎮 Context
+
+- **ธุรกิจ:** Game Studio (พัฒนาเกม PC/Steam)
+- **เป้าหมาย:** หา Publisher ร่วมงาน
+- **ตลาด:** ต่างประเทศ (English)
+- **งบ:** ~10M THB
+- **Stage:** Ready to Publish
+
+---
 
 ## โครงสร้าง
 
 ```
 auto-lead-gen/
-├── CLAUDE.md                    # คู่มือโปรเจกต์สำหรับ Claude
+├── CLAUDE.md                    # คู่มือโปรเจกต์ (กรอกข้อมูล studio + เกม)
 ├── README.md
-├── prospects/                   # ข้อมูลลูกค้าเป้าหมาย (Pipeline 8 สถานะ)
-│   ├── 1-new/                  # Lead ใหม่
-│   ├── 2-enriched/             # Lead ที่ enrich ข้อมูลแล้ว
-│   ├── 3-scored/               # Lead ที่ให้คะแนนแล้ว
-│   ├── 4-contacted/            # Lead ที่ส่งอีเมลไปแล้ว
-│   ├── 5-replied/              # Lead ที่ตอบกลับแล้ว
-│   ├── 6-meeting-booked/       # Lead ที่นัด meeting แล้ว
-│   ├── 7-closed-won/            # Lead ที่ปิดการขายสำเร็จ
-│   └── 8-closed-lost/           # Lead ที่ไม่สนใจ
-├── outreach/                    # ข้อความติดต่อลูกค้า
-│   ├── templates/               # Template อีเมล
-│   └── sent/drafts/            # ร่างอีเมลที่รอ approve
-├── research/                   # ข้อมูลวิจัยบริษัทเป้าหมาย
-│   ├── company-notes/
-│   └── industry-reports/
-├── reports/                     # รายงานสรุปผล
+├── prospects/                   # ข้อมูล publisher (Pipeline 8 สถานะ)
+│   ├── 1-new/
+│   ├── 2-enriched/
+│   ├── 3-scored/
+│   ├── 4-contacted/
+│   ├── 5-replied/
+│   ├── 6-meeting-booked/
+│   ├── 7-closed-won/
+│   └── 8-closed-lost/
+├── outreach/
+│   ├── templates/               # Email & LinkedIn templates
+│   └── sent/drafts/            # ร่างอีเมลรอ approve
+├── research/
+│   ├── company-notes/           # ข้อมูล publisher เป็นรายราย
+│   ├── industry-reports/        # รายงานอุตสาหกรรมเกม
+│   └── game-assets.md          # ข้อมูลเกมที่จะ pitch
+├── reports/
 │   ├── weekly/
 │   └── monthly/
-├── skills/                      # Custom skills
-│   └── lead-scoring/
-└── plugins/                     # Custom plugin สำหรับ Claude Cowork
-    └── lead-gen-plugin/
+├── skills/
+│   └── lead-scoring/           # Publisher scoring criteria
+└── plugins/
+    └── lead-gen-plugin/        # Claude Cowork plugin
 ```
 
-## วิธีใช้
+---
 
-### 1. แก้ไข CLAUDE.md
-เปิดไฟล์ `CLAUDE.md` และแก้ไขข้อมูลให้ตรงกับธุรกิจของคุณ:
-- ชื่อบริษัทและบริการ
-- กลุ่มเป้าหมาย (อุตสาหกรรม, ขนาด, พื้นที่)
-- Pain points หลัก
-- สไตล์การสื่อสาร
+## 🚀 Quick Start
 
-### 2. เชื่อมต่อ MCP Connectors
-ใน Claude Desktop App → Settings → Connectors:
-- **Gmail** - ส่งและอ่านอีเมล
-- **Google Drive** - เก็บเอกสาร
-- **Google Calendar** - จัดตารางนัดหมาย
-- **HubSpot/Salesforce** (optional) - เชื่อม CRM
+### 1. เตรียมข้อมูลเกม
+แก้ไขไฟล์ `research/game-assets.md` ใส่ข้อมูล:
+- ชื่อเกม, genre, platform
+- Steam page (ถ้ามีแล้ว)
+- Trailer / gameplay video
+- Unique selling points
+- Target audience
+- Competitive analysis
 
-### 3. ติดตั้ง Plugin (Optional)
-สำหรับ workflow แบบครบวงจรในคำสั่งเดียว:
-1. ไปที่ Claude Desktop → Customize → Plugins
-2. อัปโหลดโฟลเดอร์ `plugins/lead-gen-plugin`
-3. พิมพ์ `/full-pipeline 10` เพื่อรันทั้งระบบ
+### 2. แก้ไข CLAUDE.md
+เปลี่ยน:
+- ชื่อ Studio
+- รายละเอียดเกม
+- งบประมาณ
+- Genre ที่ตรงกับเกม
 
-### 4. ตั้ง Scheduled Tasks
-ใน Claude Cowork พิมพ์ `/schedule` เพื่อตั้งเวลาทำงานอัตโนมัติ:
-- **รายงานจันทร์** - ค้นหา lead ใหม่ พร้อม enrich และ score
-- **เช้าทุกวันทำการ** - เตรียมข้อมูลก่อน call ลูกค้า
-- **Follow-up ทุกวัน** - ตรวจสอบและติดตาม lead
-- **สรุปผลวันศุกร์** - สร้างรายงานสัปดาห์
+### 3. เชื่อม MCP Connectors
+Claude Desktop → Settings → Connectors:
+- **Gmail** — ส่งและติดตามอีเมล
+- **Google Drive** — เก็บ pitch deck, press kit
+- **Google Calendar** — ตาราง call กับ publisher
+- **HubSpot Free** — CRM สำหรับติดตาม pipeline
 
-## Lead Scoring
+### 4. เริ่มหา Publisher
+ใน Claude Cowork ให้คำสั่ง:
+
+```
+"ค้นหา publishers ที่รับ indie PC/Steam games ที่ตรงกับ genre [ของเกมคุณ] สร้าง list 10 รายพร้อมข้อมูลเบื้องต้นใน prospects/1-new/"
+```
+
+### 5. ตั้ง Scheduled Tasks
+พิมพ์ `/schedule` ใน Claude Cowork:
+
+| Task | ความถี่ | สิ่งที่ทำ |
+|------|---------|----------|
+| Publisher Research | ทุก 2 สัปดาห์ | หา publisher ใหม่ 10 ราย |
+| Follow-up Check | ทุกวัน | เช็คอีเมลตอบกลับ, ติดตาม lead ที่รอ |
+| Weekly Report | ทุกวันศุกร์ | สรุป pipeline + ความคืบหน้า |
+
+---
+
+## 📊 Lead Scoring (Publisher)
 
 | คะแนน | ระดับ | การดำเนินการ |
 |-------|-------|-------------|
-| 80-100 | 🔥 Hot | ติดต่อทันที |
-| 60-79 | 🌡️ Warm | ติดต่อภายในสัปดาห์นี้ |
-| 40-59 | ❄️ Cool | เก็บไว้ติดตาม |
-| < 40 | 📉 Low | เก็บไว้ในฐานข้อมูล |
+| 75-100 | 🔥 Hot | Pitch ทันที |
+| 55-74 | 🌡️ Warm | Research เพิ่ม + หา contact แล้ว pitch |
+| 35-54 | ❄️ Cool | เก็บไว้ติดตาม |
+| < 35 | 📉 Low | เก็บใน database |
 
-## กฎสำคัญ
+---
 
-⚠️ **อีเมลทุกฉบับต้องผ่านการตรวจสอบจากมนุษย์ก่อนส่ง**
+## 📁 Outreach Templates
 
-- ข้อมูลที่ Claude หามาได้อาจไม่ถูกต้อง ต้องยืนยันก่อนใช้งาน
-- ปฏิบัติตาม PDPA ในการเก็บและใช้ข้อมูลส่วนบุคคล
-- คอมพิวเตอร์ต้องเปิดและ Claude Desktop App ต้องทำงานอยู่สำหรับ scheduled tasks
+| Template | ใช้เมื่อ |
+|----------|----------|
+| `pitch-to-publisher.md` | อีเมล pitch แรก |
+| `follow-up-1-publisher.md` | ติดตามครั้งที่ 1 (3-5 วัน) |
+| `follow-up-2-publisher.md` | ติดตามครั้งที่ 2 (10 วัน) |
+| `linkedin-message.md` | LinkedIn outreach |
+| `pitch-first-contact.md` | Alternative first contact |
 
-## ต้นทุน
+---
 
-- **Claude Pro**: ~700 บ./เดือน (เพียงพอสำหรับเริ่มต้น)
-- **Claude Max**: ~3,500 บ./เดือน (สำหรับใช้งานหนัก)
+## ⚠️ กฎสำคัญ
 
-## ข้อมูลเพิ่มเติม
+- **ทุกอีเมลต้องผ่านมนุษย์ตรวจก่อนส่ง** — AI ร่าง คน approve
+- **ข้อมูล publisher ต้องยืนยันจากแหล่งที่เชื่อถือได้** — Steam pages, เว็บไซต์, press kits
+- **ห้ามเดา contact info** — ถ้าไม่แน่ใจ ใช้ LinkedIn outreach แทน
+- **Claude Desktop ต้องเปิดอยู่** สำหรับ scheduled tasks
 
-ดูรายละเอียดทั้งหมดได้จากบทความ: [สร้างระบบหาลูกค้าใหม่แบบ Auto ด้วย Claude Cowork](#)
+---
+
+## 💰 ต้นทุน
+
+| แพลน | ราคา | เหมาะกับ |
+|------|------|----------|
+| Claude Pro | ~700 บ./เดือน | เริ่มต้น |
+| Claude Max | ~3,500 บ./เดือน | ใช้งานหนัก |
+| HubSpot Free | ฟรี | CRM |
+
+---
+
+## 🔍 แหล่งข้อมูล Publisher
+
+- **Steam Store** — ดูเกมที่คล้าย → publisher page
+- **GameIndustry.biz** — ข่าว publishing deals
+- **Indie Publisher Lists** — Raw Fury, Devolver, Team17, etc.
+- **LinkedIn** — Publishing managers
+- **Twitter/X** — Publisher announcements

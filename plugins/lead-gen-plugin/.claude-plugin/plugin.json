@@ -1,5 +1,5 @@
 {
-  "name": "lead-gen-plugin",
+  "name": "lead-generation-pipeline",
   "description": "ระบบหาลูกค้าใหม่แบบครบวงจรสำหรับ Jumbo Jumps — ค้นหา publisher, enrich ข้อมูล, ให้คะแนน, ร่าง pitch อีเมล",
   "version": "1.0.0",
   "author": {

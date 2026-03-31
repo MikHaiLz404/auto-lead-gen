@@ -1,0 +1,15 @@
+{
+  "name": "Lead Generation Pipeline",
+  "description": "ระบบหาลูกค้าใหม่แบบครบวงจร ตั้งแต่ค้นหาเป้าหมาย enrich ข้อมูล ให้คะแนน ร่างข้อความ จนถึงอัปเดต CRM",
+  "version": "1.0.0",
+  "skills": [
+    "prospect-research",
+    "lead-enrichment",
+    "lead-scoring",
+    "outreach-writer",
+    "crm-update"
+  ],
+  "commands": [
+    "full-pipeline"
+  ]
+}
